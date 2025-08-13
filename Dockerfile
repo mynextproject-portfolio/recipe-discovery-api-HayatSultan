@@ -8,10 +8,10 @@ WORKDIR /app
 RUN pip install fastapi uvicorn
 
 # Copy the FastAPI app into the container
-COPY main.py .
+COPY app ./app
 
 # Expose port 80 for HTTP traffic
 EXPOSE 80
 
 # Run the FastAPI app with Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
